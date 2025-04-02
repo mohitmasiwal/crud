@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product List</title>
+</head>
+<body>
+    <form  onsubmit="handleSubmit(event)" >
+    <label>Selling Price: </label>
+    <input type="number" id="price"  >
+    <label>Product Name: </label>
+    <input type="text" id="productName" >
+    <button type="submit">Add Product</button>
+    
+    <h2>Products</h2>
+    <ul id="productList"></ul>
+    <p>Total Value Worth of Products: <span id="totalValue">₹0</span></p>
+</form>
+<ul id="list"></ul>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="./crud.js"></script>
+</body>
+</html>
