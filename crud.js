@@ -5,21 +5,23 @@ function handleSubmit(event) {
     let productName = document.getElementById("productName").value;
     let obj = { price, productName };
 
-    axios.post("https://crudcrud.com/api/44af3b836dc94c6d88c158028d2e2392/prisedetail", obj)
+    axios.post("https://crudcrud.com/api/2edf6c442bf449208ab7831b144d45fd/prisedetail", obj)
         .then((res) => {
             getuser();   
         })
         .catch((err) => console.log(err));
 }
 
-function getuser() {
-    axios.get("https://crudcrud.com/api/44af3b836dc94c6d88c158028d2e2392/prisedetail")
-        .then((res) => {
-            display(res.data);
-            calculateTotal(res.data);  
-        })
-        .catch((err) => console.log(err));
+ async function getuser() {
+
+try{
+    let data = await axios.get(" https://crudcrud.com/api/2edf6c442bf449208ab7831b144d45fd/prisedetail")
+    display(data.data);
+}catch(err){
+    console.log(err);
+    
 }
+ }
 
 function display(users) {
     let list = document.getElementById("list");
@@ -41,7 +43,7 @@ function display(users) {
 }
 
 function deleteproduct(id, price) {
-    axios.delete(`https://crudcrud.com/api/44af3b836dc94c6d88c158028d2e2392/prisedetail/${id}`)
+    axios.delete(` https://crudcrud.com/api/2edf6c442bf449208ab7831b144d45fd/prisedetail/${id}`)
         .then(() => {
             getuser();   
         })
