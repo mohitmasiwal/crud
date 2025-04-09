@@ -12,16 +12,19 @@ function handleSubmit(event) {
         .catch((err) => console.log(err));
 }
 
- async function getuser() {
+  function getuser() {
 
-try{
-    let data = await axios.get(" https://crudcrud.com/api/2edf6c442bf449208ab7831b144d45fd/prisedetail")
-    display(data.data);
-}catch(err){
-    console.log(err);
+     axios.get(" https://crudcrud.com/api/2edf6c442bf449208ab7831b144d45fd/prisedetail")
+    .then((res)=>{
+        display(res.data)
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+ 
     
 }
- }
+ 
 
 function display(users) {
     let list = document.getElementById("list");
@@ -58,3 +61,6 @@ function calculateTotal(users) {
 
  
 window.onload = getuser;
+
+
+ 
